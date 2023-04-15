@@ -55,6 +55,13 @@ public class RobotContainer {
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
 
     m_driverController.rightBumper().onTrue(new RunCommand(() -> m_Led.turnPurple(), m_Led));
+    m_driverController.leftBumper().onTrue(new RunCommand(() -> m_Led.turnYellow(), m_Led));
+    m_driverController.x().onTrue(new RunCommand(() -> m_Led.resetLED(), m_Led));
+    m_driverController.y().onTrue(new RunCommand(() -> m_Led.resetAnimation(), m_Led)); // testing if setting LEDS to 0,0,0 works
+
+    m_driverController.rightTrigger().onTrue(new RunCommand(() -> m_Led.purpleAnimation(), m_Led));
+    m_driverController.leftTrigger().onTrue(new RunCommand(() -> m_Led.yellowAnimation(), m_Led)); //testing replacing the setLEDs() to animate() with colorflow animation
+
   }
 
   /**
